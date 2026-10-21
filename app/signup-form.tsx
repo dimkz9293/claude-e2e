@@ -1,11 +1,16 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
+import { sendGAEvent } from "@next/third-parties/google";
 import { signup } from "./actions";
 import styles from "./page.module.css";
 
 export function SignupForm() {
   const [state, action, pending] = useActionState(signup, null);
+
+  useEffect(() => {
+    if (state?.ok && process.env.NEXT_PUBLIC_GA_ID) sendGAEvent("event", "sign_up", { method: "email" });
+  }, [state]);
 
   if (state?.ok) return <p className={styles.lead}>{state.message}</p>;
 

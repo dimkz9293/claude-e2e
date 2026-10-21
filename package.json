@@ -10,6 +10,7 @@
     "migrate": "node --env-file-if-exists=.env.local scripts/migrate.mjs"
   },
   "dependencies": {
+    "@next/third-parties": "^16.4.2",
     "next": "16.4.2",
     "postgres": "^3.4.9",
     "react": "19.3.0",
