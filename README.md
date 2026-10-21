@@ -13,6 +13,11 @@ A one-page Next.js landing with an email signup form. Signups go to the `signups
 
 Stage and PR previews are behind Vercel Authentication: open them while logged in to Vercel.
 
+## Where signups go
+
+- **Prod** sends each email to HubSpot through the Forms API, as a submission of the form set by `HUBSPOT_PORTAL_ID` and `HUBSPOT_FORM_ID`. These two variables exist only in the Vercel Production environment.
+- **Stage, PR previews and local** have no HubSpot variables and write to the `signups` table in their Neon branch.
+
 Each environment reads its database from `DATABASE_URL`. Locally it lives in `.env.local` (git-ignored); on Vercel it is set per environment in the project settings.
 
 ## Migrations
