@@ -4,11 +4,14 @@ A one-page Next.js landing with an email signup form. Signups go to the `signups
 
 ## Environments
 
-| Git branch | Vercel | Neon branch |
-|---|---|---|
-| `main` | prod | `main` |
-| `staging` | stage | `stage` |
-| local | `npm run dev` | `dev` |
+| Git branch | Vercel | URL | Neon branch |
+|---|---|---|---|
+| `main` | prod | https://claude-e2e.vercel.app | `main` |
+| `staging` | stage | https://claude-e2e-stage.vercel.app | `stage` |
+| other branches | PR previews | per-deployment URL | `dev` |
+| local | `npm run dev` | http://localhost:3000 | `dev` |
+
+Stage and PR previews are behind Vercel Authentication: open them while logged in to Vercel.
 
 Each environment reads its database from `DATABASE_URL`. Locally it lives in `.env.local` (git-ignored); on Vercel it is set per environment in the project settings.
 
